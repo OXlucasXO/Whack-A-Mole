@@ -1,6 +1,5 @@
-public class Grid {
+public class Initialization {
     public static void main(String[] args) {
         
     }
-
 }
