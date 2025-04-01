@@ -3,7 +3,7 @@ import processing.core.PApplet;
 public class GamePanel extends PApplet {
 
     public void settings() {
-        size(640, 600); // Set window size
+        size(640, 360); // Set window size
     }
 
     public void setup() {

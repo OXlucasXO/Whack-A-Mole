@@ -4,18 +4,23 @@ import processing.core.PApplet;
 
 public class Main extends PApplet {
 
+    Hole hole;
+
     public void settings() {
-        size(800, 600); // Set window size
+        size(480, 360, FX2D); // Set window size
     }
 
     public void setup() {
         background(0); // Black background
+        
+        hole = new Hole(this);
     }
 
     public void draw() {
-        fill(255, 0, 0); // Red color
-        ellipse(width / 2, height / 2, 100, 100); // Draw a circle
+        hole.draw();
     }
+
+
 
     public static void main(String[] args) {
         PApplet.main("com.whack.lak.Main");
