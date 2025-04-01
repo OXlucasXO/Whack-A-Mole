@@ -1,5 +1,7 @@
 {
   "java.project.referencedLibraries": [
-    "libs/core.jar"
+    "libs/core.jar",
+    "libs/gluegen-rt.jar",
+    "libs/jogl-all.jar"
   ]
 }
