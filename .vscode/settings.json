@@ -1,5 +1,6 @@
 {
   "java.project.referencedLibraries": [
-    "libs/core.jar"
-  ]
+    "libs"
+  ],
+  "java.configuration.updateBuildConfiguration": "interactive"
 }
