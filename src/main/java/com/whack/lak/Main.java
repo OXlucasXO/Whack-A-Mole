@@ -7,6 +7,7 @@ public class Main extends PApplet {
     Hole hole;
 
     public void settings() {
+        fullScreen();
         size(480, 360, FX2D); // Set window size
     }
 

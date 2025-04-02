@@ -16,5 +16,6 @@ public class Hole {
     public void draw() {
         p.fill(255, 0, 0); // Red color
         p.ellipse(p.width / 2, p.height / 2, 200, 200); // Draw a circle
+        p.ellipse(p.width / 4, p.height / 4, 200, 200); // Draw a circle
     }
 }
