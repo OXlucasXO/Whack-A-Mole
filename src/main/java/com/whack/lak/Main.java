@@ -4,26 +4,33 @@ import processing.core.PApplet;
 
 public class Main extends PApplet {
 
-    Hole hole;
+    
 
     public void settings() {
-        fullScreen();
-        size(480, 360, FX2D); // Set window size
+        fullScreen(FX2D);
     }
 
     public void setup() {
-        background(0); // Black background
-        
-        hole = new Hole(this);
+        background(0);
+
+        SpawnManager manager = new SpawnManager(this);
+        manager.display();
     }
 
     public void draw() {
-        hole.draw();
+        if (keyPressed) {
+            if (key == 'R' || key == 'r') {
+            background(0);
+            SpawnManager manager = new SpawnManager(this);
+            manager.display();
+            
+            }
+          }
     }
-
-
 
     public static void main(String[] args) {
         PApplet.main("com.whack.lak.Main");
     }
+
+
 }

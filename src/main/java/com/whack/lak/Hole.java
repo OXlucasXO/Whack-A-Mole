@@ -1,21 +1,28 @@
 package com.whack.lak;
+
 import processing.core.PApplet;
 
 public class Hole {
-    PApplet p;
+    private PApplet p;
+    private float x, y;
 
-    public Hole(PApplet _parent) {
-        this.p = _parent;
-    }    
-
-    public void setup() {
-    //    p.pixelDensity(p.displayDensity());
-    //     p.smooth();
+    public Hole(PApplet p, float x, float y) {
+        this.p = p;
+        this.x = x;
+        this.y = y;
     }
 
-    public void draw() {
-        p.fill(255, 0, 0); // Red color
-        p.ellipse(p.width / 2, p.height / 2, 200, 200); // Draw a circle
-        p.ellipse(p.width / 4, p.height / 4, 200, 200); // Draw a circle
+    public void display() {
+        // Draw the hole
+        p.fill(50);
+        p.ellipse(x, y, 100, 100);
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public float getY() {
+        return y;
     }
 }
