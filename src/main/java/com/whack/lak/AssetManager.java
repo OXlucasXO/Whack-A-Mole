@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public class AssetManager {
+<<<<<<< HEAD
     private static final Map<String, BufferedImage> images = new HashMap<>();
 
     public static BufferedImage loadImage(String path) {
@@ -21,5 +22,8 @@ public class AssetManager {
         }
         return images.get(path);
     }
+=======
+
+>>>>>>> 775a498bb13b612ac0fb0e05ef7e3a9b435c125e
 }
 

@@ -4,20 +4,33 @@ import processing.core.PApplet;
 
 public class Main extends PApplet {
 
+    
+
     public void settings() {
-        size(800, 600); // Set window size
+        fullScreen(FX2D);
     }
 
     public void setup() {
-        background(0); // Black background
+        background(0);
+
+        SpawnManager manager = new SpawnManager(this);
+        manager.display();
     }
 
     public void draw() {
-        fill(255, 0, 0); // Red color
-        ellipse(width / 2, height / 2, 100, 100); // Draw a circle
+        if (keyPressed) {
+            if (key == 'R' || key == 'r') {
+            background(0);
+            SpawnManager manager = new SpawnManager(this);
+            manager.display();
+            
+            }
+          }
     }
 
     public static void main(String[] args) {
         PApplet.main("com.whack.lak.Main");
     }
+
+
 }

@@ -1,6 +1,7 @@
 {
   "java.project.referencedLibraries": [
-    "libs"
-  ],
-  "java.configuration.updateBuildConfiguration": "interactive"
+    "libs/core.jar",
+    "libs/gluegen-rt.jar",
+    "libs/jogl-all.jar"
+  ]
 }
