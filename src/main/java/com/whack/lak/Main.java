@@ -4,39 +4,33 @@ import processing.core.PApplet;
 
 public class Main extends PApplet {
 
-    // ✅ Declare it here so all methods can use it
     SpawnManager spawnManager;
+    MouseHandler mouseHandler; // Declare MouseHandler
 
     public void settings() {
         fullScreen(FX2D); // or size(800, 600) if you're testing in windowed mode
     }
 
     public void setup() {
-        background(0);
-        spawnManager = new SpawnManager(this); // initialize the spawn manager
+        background(124,252,0,100);
+        spawnManager = new SpawnManager(this);
+        mouseHandler = new MouseHandler(this, spawnManager); // Initialize MouseHandler
     }
 
     public void draw() {
-        background(0);
-        spawnManager.display(); // draw holes and moles
+        background(124,252,0,100);
+        spawnManager.display();
+        spawnManager.updateMoleLogic();
 
-        // Optional: press 'r' to regenerate new random holes and moles
         if (keyPressed && (key == 'r' || key == 'R')) {
-            spawnManager = new SpawnManager(this);
+            background(124,252,0,100);
+            spawnManager.resetGame();
         }
     }
 
-        // This method is called automatically when the mouse is clicked.
-        public void mouseClicked() {
-            // Loop through each hole in the SpawnManager.
-            // Make sure your SpawnManager class has a getHoles() method returning the ArrayList<Hole>.
-            for (Hole h : spawnManager.getHoles()) {
-                if (h.isMouseOver()) {
-                    h.setClicked(true);
-                }
-            }
-        }
-    
+    public void mouseClicked() {
+        mouseHandler.handleMouseClicked(); // Delegate mouse click event
+    }
 
     public static void main(String[] args) {
         PApplet.main("com.whack.lak.Main");
