@@ -10,22 +10,36 @@ public class Main extends PApplet {
         fullScreen(FX2D);
     }
 
-    public void setup() {
-        background(0);
+    ScoreTimerManager scoreTimerManager;
+    SpawnManager spawnManager;
 
-        SpawnManager manager = new SpawnManager(this);
-        manager.display();
+    public void setup() {
+        
+
+       spawnManager = new SpawnManager(this);
+
+        scoreTimerManager = new ScoreTimerManager(this);
+        
     }
 
     public void draw() {
         if (keyPressed) {
             if (key == 'R' || key == 'r') {
-            background(0);
-            SpawnManager manager = new SpawnManager(this);
-            manager.display();
+            // background(0);
+            // SpawnManager manager = new SpawnManager(this);
+            // manager.display();
             
             }
+
           }
+        background(255);
+        scoreTimerManager.update();
+        spawnManager.update();
+        
+    }
+
+    public void mousePressed() {
+        scoreTimerManager.detectMouse();
     }
 
     public static void main(String[] args) {
@@ -34,3 +48,5 @@ public class Main extends PApplet {
 
 
 }
+
+// implement exit screen

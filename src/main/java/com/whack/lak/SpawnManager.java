@@ -14,17 +14,24 @@ public class SpawnManager {
 
     public SpawnManager(PApplet _parent) {
         this.p = _parent;
+        this.initizlize();
     }
 
-    public void display() {
+    float x, y;
 
+    public void initizlize() {
+        
         holes = new ArrayList<>();
         moles = new ArrayList<>();
 
+        x = p.random(100, p.width - 100);
+        y = p.random(100, p.height - 100);
+
+    }
+
+    public void update() {
         for (int i = 0; i < 12; i++) {
 
-            float x = p.random(100, p.width - 100);
-            float y = p.random(100, p.height - 100);
             
             holes.add(new Hole(p, x, y));
             moles.add(new Mole(p, x, y));
