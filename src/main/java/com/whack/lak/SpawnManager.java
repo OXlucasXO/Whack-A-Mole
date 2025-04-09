@@ -1,52 +1,59 @@
 package com.whack.lak;
 
 import java.util.ArrayList;
+
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class SpawnManager {
 
-    private PApplet p;
-    private ArrayList<Hole> holes;
-    public ArrayList<Mole> moles;
-    public int currentVisibleMoleIndex = -1; // Made public
-    public int moleVisibleTimer = 0; // Made public
-    public int nextMoleDelayTimer = 60; // Made public
+    private final PApplet p;
+    private final ArrayList<Hole> holes = new ArrayList<>();
+    public final ArrayList<Mole> moles = new ArrayList<>();
+
+    public int currentVisibleMoleIndex = -1;
+    public int moleVisibleTimer = 0;
+    public int nextMoleDelayTimer = 60;
+    public int score = 0;
+
     private final int MOLE_VISIBLE_DURATION = 75;
     public final int MIN_DELAY_BETWEEN_MOLES = 20;
-    public int score = 0; // Made public
+    private final int MAX_HOLES = 6;
+    private final float MIN_HOLE_DISTANCE = 210;
+
+    private final PImage moleImage;
+    private final PImage holeImage;
+
+    private final Config config;
 
     public SpawnManager(PApplet _parent) {
         this.p = _parent;
-        holes = new ArrayList<>();
-        moles = new ArrayList<>();
-        spawnHolesAndMoles();
+        this.config = new Config(p);
+        this.moleImage = config.getMoleAsset();
+        this.holeImage = config.getHoleAsset();
     }
 
-    private void spawnHolesAndMoles() {
-        int maxHoles = 12;
-        float minDistance = 210;
+    public void spawnHolesAndMoles() {
+        // holes.clear();
+        // moles.clear();
 
-        holes.clear();
-        moles.clear();
-
-        while (holes.size() < maxHoles) {
+        while (holes.size() < MAX_HOLES) {
             float x = p.random(200, p.width - 200);
             float y = p.random(200, p.height - 200);
-            boolean tooClose = false;
 
-            for (Hole existingHole : holes) {
-                if (PApplet.dist(x, y, existingHole.getX(), existingHole.getY()) < minDistance) {
+            boolean tooClose = false;
+            for (Hole hole : holes) {
+                if (PApplet.dist(x, y, hole.getX(), hole.getY()) < MIN_HOLE_DISTANCE) {
                     tooClose = true;
                     break;
                 }
             }
 
             if (!tooClose) {
-                holes.add(new Hole(p, x, y));
-                moles.add(new Mole(p, x, y));
+                holes.add(new Hole(p, holeImage, x, y));
+                moles.add(new Mole(p, moleImage, x, y));
             }
         }
-        System.out.println("Successfully spawned " + maxHoles + " holes with organic placement.");
     }
 
     public void updateMoleLogic() {
@@ -57,28 +64,28 @@ public class SpawnManager {
 
         if (currentVisibleMoleIndex != -1) {
             moleVisibleTimer--;
+
             if (moleVisibleTimer <= 0) {
                 currentVisibleMoleIndex = -1;
                 nextMoleDelayTimer = (int) p.random(MIN_DELAY_BETWEEN_MOLES, MIN_DELAY_BETWEEN_MOLES * 3);
             }
-        } else {
-            if (holes.size() > 0) {
-                currentVisibleMoleIndex = (int) p.random(holes.size());
-                moleVisibleTimer = MOLE_VISIBLE_DURATION;
-            }
+
+        } else if (!holes.isEmpty()) {
+            currentVisibleMoleIndex = (int) p.random(holes.size());
+            moleVisibleTimer = MOLE_VISIBLE_DURATION;
         }
 
-        for (int i = 0; i < moles.size(); i++) {
-            if (i == currentVisibleMoleIndex) {
-                moles.get(i).display();
-            }
+        if (currentVisibleMoleIndex != -1) {
+            moles.get(currentVisibleMoleIndex).display();
         }
     }
 
     public void display() {
-        for (Hole h : holes) {
-            h.display();
+        for (Hole hole : holes) {
+            hole.display();
         }
+        this.updateMoleLogic();
+
     }
 
     public void resetGame() {
