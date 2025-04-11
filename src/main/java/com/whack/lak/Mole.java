@@ -8,11 +8,11 @@ public class Mole {
     private float x, y; // Position of the mole
 
     // Constructor
-    public Mole(PApplet p, float x, float y) {
-        this.p = p;
-        this.x = x;
-        this.y = y;
-        this.moleImage = p.loadImage("assets/img/mole.png"); // Load image from /data folder
+    public Mole(PApplet _p, PImage _image,float _x, float _y) {
+        this.p = _p;
+        this.x = _x;
+        this.y = _y;
+        this.moleImage = _image; // Load image from /data folder
     }
 
     // Method to draw the mole
