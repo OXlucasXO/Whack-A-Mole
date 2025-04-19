@@ -1,7 +1,6 @@
 package com.whack.lak;
 
 import processing.core.PApplet;
-import processing.core.PImage;
 
 public class Hole {
     private PApplet p;
@@ -15,7 +14,7 @@ public class Hole {
     private int redColor;
     private int whiteOverlayColor; // Color for the semi-transparent white overlay
 
-    public Hole(PApplet _p, PImage _holeImage, float _x, float _y) {
+    public Hole(PApplet _p, float _x, float _y) {
         this.p = _p;
         this.x = _x;
         this.y = _y;
