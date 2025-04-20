@@ -30,6 +30,7 @@ public class Main extends PApplet {
 
         if (keyPressed && (key == 'r' || key == 'R')) {
             spawnManager.resetGame();
+            scoreTimerManager.ResetScore(); // Reset the score and timer
         }
     }
 

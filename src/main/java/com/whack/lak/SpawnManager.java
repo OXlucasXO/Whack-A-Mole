@@ -34,8 +34,6 @@ public class SpawnManager {
     }
 
     public void spawnHolesAndMoles() {
-        // holes.clear();
-        // moles.clear();
 
         while (holes.size() < MAX_HOLES) {
             float x = p.random(200, p.width - 200);
@@ -89,12 +87,12 @@ public class SpawnManager {
     }
 
     public void resetGame() {
-        spawnHolesAndMoles();
+        p.background(124,252,0,100);
+        holes.clear(); // Clear existing holes
+        moles.clear(); // Clear existing moles
+        spawnHolesAndMoles(); // Regenerate and distribute new holes and moles
         currentVisibleMoleIndex = -1;
-        moleVisibleTimer = 0;
-        nextMoleDelayTimer = 60;
-        score = 0;
-    }
+        }
 
     public ArrayList<Hole> getHoles() {
         return holes;

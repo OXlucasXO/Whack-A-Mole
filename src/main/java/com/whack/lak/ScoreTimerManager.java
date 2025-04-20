@@ -35,11 +35,18 @@ public class ScoreTimerManager  {
       }
     }
     
+    
     // Simulate score increase (remove this in final)
     public void updateScore() {
       score++;
-    }     
-}
+    } 
+    public void ResetScore() {
+      score = 0;
+      startTime = p.millis(); // Reset the start time
+      p.loop(); // Restart the draw loop
+  }
+}    
+
         
 
 
