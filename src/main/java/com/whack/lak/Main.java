@@ -6,44 +6,38 @@ public class Main extends PApplet {
 
     SpawnManager spawnManager;
     MouseHandler mouseHandler; // Declare MouseHandler
+    ScoreTimerManager scoreTimerManager;
 
     public void settings() {
-        fullScreen(FX2D);
+        fullScreen(FX2D); // or size(800, 600) if you're testing in windowed mode
     }
 
-    ScoreTimerManager scoreTimerManager;
-    SpawnManager spawnManager;
-
     public void setup() {
+        background(124,252,0,100);
         
+        spawnManager = new SpawnManager(this);
+        spawnManager.spawnHolesAndMoles();
 
-       spawnManager = new SpawnManager(this);
+        scoreTimerManager = new ScoreTimerManager(this);
 
-        circle(200, 200, 100);
-        spawnManager.display();
-
-        mouseHandler = new MouseHandler(this, spawnManager); // Initialize MouseHandler
+        mouseHandler = new MouseHandler(this, spawnManager, scoreTimerManager); // Initialize MouseHandler
     }
 
     public void draw() {
         background(124,252,0,100);
         spawnManager.display();
+        scoreTimerManager.update();
 
         if (keyPressed && (key == 'r' || key == 'R')) {
-            background(124,252,0,100);
             spawnManager.resetGame();
         }
     }
 
-    public void mousePressed() {
-        scoreTimerManager.detectMouse();
+    public void mouseClicked() {
+        mouseHandler.handleMouseClicked(); // Delegate mouse click event
     }
 
     public static void main(String[] args) {
         PApplet.main("com.whack.lak.Main");
     }
-
-
 }
-
-// implement exit screen

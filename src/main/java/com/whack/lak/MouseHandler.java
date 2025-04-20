@@ -4,9 +4,11 @@ import processing.core.PApplet;
 
 public class MouseHandler {
     private SpawnManager spawnManager;
+    private ScoreTimerManager scoreTimerManager;
 
-    public MouseHandler(PApplet _p, SpawnManager _spawnManager) {
+    public MouseHandler(PApplet _p, SpawnManager _spawnManager, ScoreTimerManager _scoreTimerManager) {
         this.spawnManager = _spawnManager;
+        this.scoreTimerManager = _scoreTimerManager;
     }
 
     public void handleMouseClicked() {
@@ -18,6 +20,10 @@ public class MouseHandler {
                     spawnManager.currentVisibleMoleIndex = -1;
                     spawnManager.moleVisibleTimer = 0;
                     spawnManager.nextMoleDelayTimer = spawnManager.MIN_DELAY_BETWEEN_MOLES / 2;
+
+                    scoreTimerManager.updateScore();
+
+
                 }
                 break;
             }

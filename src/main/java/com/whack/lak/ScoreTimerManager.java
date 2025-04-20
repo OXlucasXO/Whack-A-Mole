@@ -1,6 +1,5 @@
 package com.whack.lak;
 
-<<<<<<< HEAD
 import processing.core.PApplet;
 
 public class ScoreTimerManager  {
@@ -37,22 +36,10 @@ public class ScoreTimerManager  {
     }
     
     // Simulate score increase (remove this in final)
-    public void detectMouse() {
-      if (p.millis() - startTime < timeLimit) {
-        score++; // Just for testing; replace with actual mole logic later
-      }
+    public void updateScore() {
+      score++;
     }     
-    
-
-    public static void main(String[] args) {
-        PApplet.main("com.whack.lak.ScoreTimerManager");
-    }
-    
 }
-=======
-public class ScoreTimerManager {
-    public static void main(String[] args) {
->>>>>>> parent of 9b33c5d (combined ScoreTimerManager and SpawnManager)
         
-    }
-}
+
+
