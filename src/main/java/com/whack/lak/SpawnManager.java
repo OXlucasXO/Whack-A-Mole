@@ -18,7 +18,7 @@ public class SpawnManager {
     public int nextMoleDelayTimer = 60;
     // public int score = 0; // This is redundant, score is handled by ScoreTimerManager
 
-    private final int MOLE_VISIBLE_DURATION = 30;
+    private final int MOLE_VISIBLE_DURATION = 35;
     public final int MIN_DELAY_BETWEEN_MOLES = 20;
     private final int MAX_HOLES = 9;
     private final float MIN_HOLE_DISTANCE = 210;
@@ -95,9 +95,7 @@ public class SpawnManager {
     }
 
     public void resetGame() {
-        // Don't set background here, Main.draw does it.
-        // Setting it here might cause flicker if Main redraws immediately after.
-        // p.background(124,252,0,100);
+       
         spawnHolesAndMoles(); // Clears and respawns holes and moles
         currentVisibleMoleIndex = -1;
         moleVisibleTimer = 0; // Reset timer
@@ -108,6 +106,5 @@ public class SpawnManager {
         return holes;
     }
 
-    // Need getters for Mole class if Hole needs Mole info, or vice versa.
-    // Currently assumes parallel lists are sufficient.
+    
 }

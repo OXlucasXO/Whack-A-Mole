@@ -44,33 +44,19 @@ public class Main extends PApplet {
 
     @Override
     public void mouseClicked() {
-        // Delegate only if game is running (i.e., loop is active)
-        // Check 'looping' which is a boolean field in PApplet
         if (looping && mouseHandler != null) {
              mouseHandler.handleMouseClicked();
         }
-        // Optional: You could allow clicking after game over to restart too
-        // else if (!looping && (mouseX > someButtonAreaX && ...)) { // Check if clicking a restart button
-        //     resetGame();
-        // }
     }
 
-    // --- ADDED/MODIFIED METHOD ---
-    /**
-     * Processing's keyPressed() method. Called once whenever a key is pressed.
-     * This works even when noLoop() has been called.
-     */
     @Override
     public void keyPressed() {
         if (key == 'r' || key == 'R') {
             resetGame();
         }
-        // You could add other key handlers here if needed (e.g., pause, exit)
     }
-    // --- END ADDED/MODIFIED METHOD ---
 
 
-    // Encapsulate reset logic
     private void resetGame() {
         spawnManager.resetGame();
         scoreTimerManager.ResetScore(); // This MUST call p.loop() internally to restart drawing!
