@@ -23,7 +23,7 @@ public class Main extends PApplet {
         // Initial setup calls
         spawnManager.spawnHolesAndMoles();
 
-        background(124, 252, 0, 100);
+        background(150, 132, 161, 100);
     }
 
     @Override
@@ -31,15 +31,10 @@ public class Main extends PApplet {
         // Only draw if the loop is running
         // (noLoop() might have been called by ScoreTimerManager)
         // background() should still be called even if paused to show the last frame correctly.
-        background(124, 252, 0, 100); // Clear background
+        background(150, 132, 161, 100); // Clear background
 
         spawnManager.display(); // Display holes & update/display moles
         scoreTimerManager.update(); // Update timer/score display & check game over
-
-        // Reset logic is MOVED to keyPressed()
-        // if (keyPressed && (key == 'r' || key == 'R')) {
-        //    resetGame();
-        // }
     }
 
     @Override

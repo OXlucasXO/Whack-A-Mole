@@ -1,9 +1,10 @@
 package com.whack.lak;
 
 import processing.core.PApplet;
+import processing.core.PFont;
+import processing.core.PImage;
 
-public class ScoreTimerManager {
-
+public class ScoreTimerManager { 
     int score = 0;
     int startTime;
     int timeLimit = 30000; // 10 seconds initial limit
@@ -16,6 +17,7 @@ public class ScoreTimerManager {
     }
 
     public void update() {
+        PFont scoreFont = new PFont();
         // Timer logic
         int elapsedTime = p.millis() - startTime;
         // Ensure displayed time doesn't go below 0
@@ -23,6 +25,7 @@ public class ScoreTimerManager {
 
         p.fill(0);
         p.textSize(32);
+        
         p.text("Time Left: " + timeLeft + "s", 20, 40);
         p.text("Score: " + score, 20, 80);
 

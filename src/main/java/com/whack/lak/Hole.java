@@ -19,9 +19,9 @@ public class Hole {
         this.p = _p;
         this.x = _x;
         this.y = _y;
-        this.defaultColor = p.color(101, 67, 33); // Darker brown for holes (same as before)
-        this.redColor = p.color(255, 0, 0);
-        this.whiteOverlayColor = p.color(255, 255, 255, 100); // White with 100 alpha (adjust for transparency)
+        this.defaultColor = p.color(53,59, 60); // Darker brown for holes (same as before)
+        this.redColor = p.color(67,170, 139);
+        this.whiteOverlayColor = p.color(222, 185, 133, 60); // White with 100 alpha (adjust for transparency)
     }
 
     public void display() {
