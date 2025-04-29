@@ -1,5 +1,7 @@
+
 # Guack-a-mole
 An epic survival experience. with high octane action and heart wrenching backstories. what did the moles do to you find out and play Whac-A-Mole
+
 
 ## UML Diagram
 
@@ -133,6 +135,7 @@ classDiagram
     Hole -- PImage : depends on
     SpawnManager -- ArrayList : uses
 
+
 ## Requirements
 
 
@@ -151,3 +154,4 @@ classDiagram
 *   Sometimes the game gets stuck at launch as the `spawnHolesAndMoles()` class gets stuck in a while loop if there is nt enough space to place a hole
 *   
 *   
+
