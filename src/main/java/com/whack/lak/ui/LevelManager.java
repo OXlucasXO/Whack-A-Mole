@@ -1,4 +1,4 @@
-package com.whack.lak;
+package com.whack.lak.ui;
 
 public class LevelManager {
 

@@ -1,6 +1,17 @@
-package com.whack.lak;
+package com.whack.lak.logic;
+
+/** 
+ * * Main class for the Whack-a-Mole game.
+ *  
+ *   @author "Lakshya Timsina Chhetri"
+ *   @version "3.2.0"
+ *   @since 2025-03-30
+*/
 
 import java.util.ArrayList;
+
+import com.whack.lak.ui.Config;
+
 import processing.core.PApplet;
 import processing.core.PImage;
 

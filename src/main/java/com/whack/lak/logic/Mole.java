@@ -1,4 +1,12 @@
-package com.whack.lak;
+package com.whack.lak.logic;
+
+/** 
+ * * Main class for the Whack-a-Mole game.
+ *  
+ *   @author "Vanthay VirajaySak"
+ *   @version "3.2.0"
+ *   @since 2025-03-30
+*/
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -19,7 +27,7 @@ public class Mole {
     public void display() {
         if (moleImage != null) {
             p.imageMode(PApplet.CENTER); // Set image drawing mode to center
-            p.image(moleImage, x, y, 80, 80); // Draw mole at correct position
+            p.image(moleImage, x, y-20, 140, 140); // Draw mole at correct position
         } else {
             p.fill(255, 0, 0); // Red if image not found
             p.ellipse(x, y, 80, 80);
