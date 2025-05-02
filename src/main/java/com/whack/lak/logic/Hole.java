@@ -4,6 +4,13 @@ import com.whack.lak.ui.Config;
 import processing.core.PApplet;
 import processing.core.PImage;
 
+/**
+ * * class for hole logic
+ * @author "htun thiha myo"
+ * @version "3.2.0"
+ * @since 2025-03-30
+ */
+
 public class Hole {
     private PApplet p;
     private float x;

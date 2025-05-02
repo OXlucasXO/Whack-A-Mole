@@ -2,6 +2,16 @@ package com.whack.lak.logic;
 
 import processing.core.PApplet;
 
+
+/**
+ * * class for Mouse Processing logic
+ * @author "htun thiha myo"
+ * @author "Lakshya Timsina Chhetri"
+ * @author "Vanthy VIrajaySak"
+ * @version "3.2.0"
+ * @since 2025-03-30
+ */
+
 public class MouseHandler {
     private SpawnManager spawnManager;
     private ScoreTimerManager scoreTimerManager;

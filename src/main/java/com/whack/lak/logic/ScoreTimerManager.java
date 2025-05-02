@@ -5,6 +5,15 @@ import processing.core.PApplet;
 import processing.core.PFont; // Import PFont
 import processing.core.PImage;
 
+
+/**
+ * * class for score and timer logic
+ * @author "San Ja Nar"
+ * @version "3.2.0"
+ * @since 2025-03-30
+ */
+
+
 public class ScoreTimerManager {
     int score = 0;
     int startTime;

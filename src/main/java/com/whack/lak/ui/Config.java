@@ -4,6 +4,7 @@ package com.whack.lak.ui;
  * * Main class for the Whack-a-Mole game.
  *
  * @author "htun thiha myo"
+ * @author "Lakshya Timsina Chhetri"
  * @version "3.2.0"
  * @since 2025-03-30
  */

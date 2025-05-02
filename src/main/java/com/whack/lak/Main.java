@@ -8,10 +8,7 @@ import processing.core.PImage;
 
 /**
  * * Main class for the Whack-a-Mole game.
- * @author "Lakshya Timsina Chhetri"
- * @author "San ja nar"
  * @author "htun thiha myo"
- * @author "vantay VirajaySak"
  * @version "3.2.0"
  * @since 2025-03-30
  */
@@ -22,8 +19,7 @@ public class Main extends PApplet {
     ScoreTimerManager scoreTimerManager;
     private PImage backgroundImage;
     private Config config;
-    private final int topBarHeight = 100; // Define the height of the top bar
-
+    private final int BarHeight = 100; 
 
     @Override
     public void settings() {
@@ -47,18 +43,14 @@ public class Main extends PApplet {
     public void draw() {
         // Only draw if the loop is running
         if (looping) {
-            // Draw background image - This clears the previous frame
             if (backgroundImage != null) {
                 image(backgroundImage, 0, 0, width, height);
             } else {
                 background(150, 132, 161, 100); // Fallback to color background
             }
-
-            // Draw black bar at the top
-            fill(0); // Set fill color to black
-            noStroke(); // Remove stroke
-            rect(0, 0, width, topBarHeight); // Draw the black rectangle
-
+            fill(0);
+            noStroke();
+            rect(0, 0, width, BarHeight);
             spawnManager.display(); // Display holes & update/display moles
             scoreTimerManager.update(); // Update timer/score display & check game over
         }

@@ -144,14 +144,23 @@ classDiagram
 
 ### ***follow the sequence Below***
 
-1)  open `Main.java`
-2)  
-3)  
+1)  create a new Folder in desired location
+2)  Name the folder What ever you want
+3)  rigiht click on `Guack-a-mole.zip`
+3)  extract `Guack-a-mole.zip` into the craeted folder
+4)  open the folder in VSCode
+5)  run `Main.java`
+6)  to exit the game press `Esc` key
+
+##  Recomendation
+### *Use a mouse to play*
 
 
 ## Known Issues
-*   When you run once, then you cannot stop  to play
+*   When you run once, then you cannot stop to play
 *   Sometimes the game gets stuck at launch as the `spawnHolesAndMoles()` class gets stuck in a while loop if there is nt enough space to place a hole
-*   
+*   Pressing `R` to reset the game doesn't reset the background completely
+
+
 *   
 
